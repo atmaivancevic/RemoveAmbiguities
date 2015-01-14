@@ -1,22 +1,22 @@
 # Remove nucleotide ambiguities (e.g. from file seq1.fa)
 
-#$1 = name of sequence (e.g. seq1)
-
-
 # Ignore header lines (i.e. lines starting with '>')
-# Feed into the command line one line at a time
-sed '/^>/!s/M/N/g' $1.fa >> $1_M.fa
-sed '/^>/!s/R/N/g' $1_M.fa >> $1_R.fa
-sed '/^>/!s/W/N/g' $1_R.fa >> $1_W.fa
-sed '/^>/!s/S/N/g' $1_W.fa >> $1_S.fa
-sed '/^>/!s/Y/N/g' $1_S.fa >> $1_Y.fa
-sed '/^>/!s/K/N/g' $1_Y.fa >> $1_K.fa
-sed '/^>/!s/V/N/g' $1_K.fa >> $1_V.fa
-sed '/^>/!s/H/N/g' $1_V.fa >> $1_H.fa
-sed '/^>/!s/D/N/g' $1_H.fa >> $1_D.fa
-sed '/^>/!s/B/N/g' $1_D.fa >> $1_B.fa
-sed '/^>/!s/X/N/g' $1_B.fa >> $1_X.fa
+# For each file in the directory of the form seq*.fa, remove ambiguities
+for i in seq*.fa;
+do
+sed '/^>/!s/M/N/g' $i >> $i_M
+sed '/^>/!s/R/N/g' $i_M >> $i_R
+sed '/^>/!s/W/N/g' $i_R >> $i_W
+sed '/^>/!s/S/N/g' $i_W >> $i_S
+sed '/^>/!s/Y/N/g' $i_S >> $i_Y
+sed '/^>/!s/K/N/g' $i_Y >> $i_K
+sed '/^>/!s/V/N/g' $i_K >> $i_V
+sed '/^>/!s/H/N/g' $i_V >> $i_H
+sed '/^>/!s/D/N/g' $i_H >> $i_D
+sed '/^>/!s/B/N/g' $i_D >> $i_B
+sed '/^>/!s/X/N/g' $i_B >> $i_X
 
-rm $1.fa
-mv $1_X.fa $1.fa
-rm $1_*.fa
+rm $i
+mv $i_X $i
+rm $i_*
+done
