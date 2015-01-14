@@ -8,3 +8,8 @@ do
 ./Remove_nucleotide_ambiguities.sh seq$i
 
 done
+
+#Final steps to remove all extra files from directory:
+
+rm seq*_*.fa
+rm Remove_*.sh
