@@ -1,8 +1,8 @@
 
-# $2 - start value
-# $3 - end value
+# $1 - start value
+# $2 - end value
 
-for ((i=$2; i<=$3; i++));
+for ((i=$1; i<=$2; i++));
 do
 
 ./Remove_nucleotide_ambiguities.sh seq$i
