@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Remove nucleotide ambiguities (e.g. from file seq1.fa)
 
 #$1 = name of sequence (e.g. seq1)
